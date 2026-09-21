@@ -14,17 +14,33 @@ proxies:
   udp: true
   tls: false
   skip-cert-verify: true
+- name: 🇲🇾 MY 02 - xiaohe
+  type: vless
+  server: 188.114.97.6
+  port: 443
+  uuid: 6e5270b6-9f28-4bc6-8a41-9c197f33f4bb
+  udp: true
+  tls: true
+  skip-cert-verify: true
+  servername: autumn-dawn-fa6b.337-272.workers.dev
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: autumn-dawn-fa6b.337-272.workers.dev
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
   - 🇲🇾 MY 01 - xiaohe
+  - 🇲🇾 MY 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
   - 🇲🇾 MY 01 - xiaohe
+  - 🇲🇾 MY 02 - xiaohe
 rules:
 - MATCH,PROXIES
